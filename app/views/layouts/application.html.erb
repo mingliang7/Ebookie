@@ -38,39 +38,62 @@
   </head>
   <body>
 
-    <div class="navbar navbar-fluid-top">
-      <div class="navbar-inner">
-        <div class="container-fluid">
-          <a class="btn btn-navbar" data-target=".nav-collapse" data-toggle="collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </a>
-          <a class="brand" href="#">E-Bookie</a>
-          <div class="container-fluid nav-collapse">
-            <ul class="nav">
-              <li><%= link_to "Link1", "/path1"  %></li>
-              <li><%= link_to "Link2", "/path2"  %></li>
-              <li><%= link_to "Link3", "/path3"  %></li>
-            </ul>
-          </div><!--/.nav-collapse -->
+<div class="container">
+  <div class="row">
+    <div class="span12">
+      <div class="head">
+        <div class="row-fluid">
+            <div class="span12">
+            <div class="span12">
+            <div class="span2">
+              <%=image_tag("icon.png")%>
+               <h1 class="muted">Ebookie</h1>
+              </div>
+              <div class="span10">
+                <%=image_tag("banner.jpg")%>
+                </div>
+            </div>
+                
+               
+                <!--
+                <div class="span4 offset2" style="margin-top:15px;">
+                    <button class="btn pull-right" type="button">Sign In</button>
+                </div>
+                -->
+            </div>
+        </div>
+
+        <div class="navbar">
+            <div class="navbar-inner">
+                <div class="container">
+                    <ul class="nav">
+                        <li>
+                          <%= link_to 'Home', store_path%>
+                        </li>
+
+                        <li>
+                            <a href="#">Search</a>
+                        </li>
+
+                        <li>
+                            <a href="#">Features</a>
+                        </li>
+
+                        <li>
+                            <a href="#">Blog</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </div>
       </div>
     </div>
+  </div>
+</div>
 
-    <div class="container-fluid">
+    <div class="container">
       <div class="row-fluid">
-        <div class="span3">
-          <div class="well sidebar-nav">
-            <ul class="nav nav-list">
-              <li class="nav-header">Menu</li>
-              <li><%= link_to "Home", "/path1"  %></li>
-              <li><%= link_to "Question", "/path2"  %></li>
-              <li><%= link_to "News", "/path3"  %></li>
-              <li><%= link_to "Contact", "/path3"  %></li>
-            </ul>
-          </div><!--/.well -->
-        </div><!--/span-->
+      
         <div class="span9">
           <%= bootstrap_flash %>
           <%= yield %>

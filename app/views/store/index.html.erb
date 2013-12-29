@@ -1,27 +1,40 @@
-<% if notice %>
-<p id="notice"><%= notice %></p>
-<% end %>
-
-<h1>Your Pragmatic Catalog</h1>
-<table class="table">
+<div class="container">
+<div class="row-fluid">
+  <div class="span3">
+          <div class="well sidebar-nav">
+          <%= render @cart%>
+          <!--
+            <ul class="nav nav-list">
+              <li class="nav-header">Menu</li>
+      -->
+            </ul>
+          </div><!--/.well -->
+        </div><!--/span-->
+<div class="span9">
+<div class="panel-primary">
+<div class="panel-heading">
+<div class="panel-title">
+Your Pragmatic Catalog
+</div>
+</div>
+</div>
 <% @products.each do |product| %>
-<div class="entry">
-<tr>
-<td>
+<div class="span5">
+
 <%= image_tag(product.image_url, :class => "img-polaroid")%>
-</td>
-<td>
+
+
+
 <h3><%= product.title %></h3>
 <%= sanitize(product.description) %>
 
-<div class="price_line">
-
-
 <span class="price"><br><br><p class="price">Price:&nbsp;<%= number_to_currency(product.price) %></p></span>
 <%= button_to 'Add to Cart ', line_items_path(:product_id => product), class: "btn btn-primary"%>
-</td>
-</div>
-</tr>
+
+
 </div>
 <% end %>
-</table>
+
+</div>
+</div>
+</div>
