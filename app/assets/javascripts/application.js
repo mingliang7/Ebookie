@@ -11,7 +11,27 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery.ui.effect-blind
 //= require jquery_ujs
 //= require twitter/bootstrap
 //= require turbolinks
 //= require_tree .
+$(document).ready(function() {
+       $(window).scroll(function(){
+                  if ($(this).scrollTop() >400){
+                  $('.navbar').addClass("navbar-fixed-top", 500 ,"easeOutBounce");
+                
+            
+         
+                  } else {
+                  	$('.navbar').removeClass("navbar-fixed-top");
+     
+                  }        
+               }); 
+
+       	$('#btn').click(function(){
+       		$('.alert').hide(300);
+
+       	});
+
+     });

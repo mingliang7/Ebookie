@@ -1,8 +1,13 @@
 <div class="container">
 <div class="row-fluid">
   <div class="span3">
-          <div class="well sidebar-nav">
+          <div class="well sidebar-nav " >
+          <div id="cart">
+          <tr>
           <%= render @cart%>
+          </tr>
+
+          </div>
           <!--
             <ul class="nav nav-list">
               <li class="nav-header">Menu</li>
@@ -11,29 +16,30 @@
           </div><!--/.well -->
         </div><!--/span-->
 <div class="span9">
-<div class="panel-primary">
-<div class="panel-heading">
-<div class="panel-title">
-Your Pragmatic Catalog
+<div class="page-header">
+<h2>Your Pragmatic Catalog</h2>
 </div>
-</div>
-</div>
+
+<ul class="thumbnails">
+ <li class="thumbnails">
+    <div class="thumbnails">
 <% @products.each do |product| %>
-<div class="span5">
-
-<%= image_tag(product.image_url, :class => "img-polaroid")%>
 
 
+ 
+    <%= image_tag(product.image_url, :class => "img-polaroid")%>
+    
+    <h3><%= product.title %></h3>
 
-<h3><%= product.title %></h3>
-<%= sanitize(product.description) %>
+    <%= sanitize(product.description) %>
+    <span class="price"><br><br><p class="price">Price:&nbsp;<%= number_to_currency(product.price) %></p></span>
+    <%= button_to 'Add to Cart ', line_items_path(:product_id => product), id: "btn", class: "btn btn-primary", remote: true%>
+    
 
-<span class="price"><br><br><p class="price">Price:&nbsp;<%= number_to_currency(product.price) %></p></span>
-<%= button_to 'Add to Cart ', line_items_path(:product_id => product), class: "btn btn-primary"%>
-
-
-</div>
 <% end %>
+</div>
+    </li>
+</ul>
 
 </div>
 </div>

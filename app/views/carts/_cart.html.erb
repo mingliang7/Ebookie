@@ -1,7 +1,11 @@
+
+<h3>Your Cart</h3>
 <%= render(cart.line_items)%>
 <hr>
 <strong>Total:&nbsp;<%=number_to_currency(@cart.total_price)%></strong>
-<%= button_to 'Empty Cart', @cart, method: :delete, data:{comfirm: "Are you sure ?"}, class: "btn btn-danger"%>
+<span><%= button_to 'Check out ', new_order_path, method: :get,  :class => "btn pull-right"%>
+<%= button_to 'Empty Cart', @cart, method: :delete, :data => {:confirm => "Are you sure ?" } ,:class => "btn btn-danger"%>
+</span>
 
 
 

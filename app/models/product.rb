@@ -1,5 +1,6 @@
 class Product < ActiveRecord::Base
 	has_many :line_items 
+	has_many :orders, through: :line_items
 	before_destroy :ensure_not_referenced_by_any_line_items
 	validates_presence_of :title, :description, :price
 	validates :price, :numericality => {:greater_than_or_equal_to => 0.01}
@@ -13,9 +14,13 @@ class Product < ActiveRecord::Base
 		if line_items.empty?
 			return true 
 		else 
-			error.add(:base, "Line items presents ")
+			errors.add(:base, "Line items presents ")
 			return false 
 		end 
+		
+	end
+	def self.latest_order
+		Product.order(:updated_at).last
 		
 	end
 
